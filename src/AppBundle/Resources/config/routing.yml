@@ -1,0 +1,29 @@
+recette_index:
+    path:     /
+    defaults: { _controller: "AppBundle:Default:index" }
+    methods:  GET
+
+recette_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Default:show" }
+    methods:  GET
+
+recette_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Default:new" }
+    methods:  [GET, POST]
+
+recette_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:Default:edit" }
+    methods:  [GET, POST]
+
+recette_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:Default:delete" }
+    methods:  DELETE
+
+#Ajouté au CRUD
+showRand:
+  path: /daily/{id}
+  defaults: { _controller: "AppBundle:Default:showRand" }

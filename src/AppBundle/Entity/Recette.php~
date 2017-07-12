@@ -1,0 +1,11 @@
+<?php
+
+namespace AppBundle\Entity;
+
+/**
+ * Recette
+ */
+class Recette
+{
+    
+}

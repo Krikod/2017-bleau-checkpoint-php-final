@@ -1,0 +1,45 @@
+{% extends '@App/layout.html.twig' %}
+
+{% block body %}
+    <h1>Liste des Recettes</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Ingredients</th>
+                <th>Dateajout</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for recette in recettes %}
+            <tr>
+                <td><a href="{{ path('recette_show', { 'id': recette.id }) }}">{{ recette.id }}</a></td>
+                <td>{{ recette.titre }}</td>
+                <td>{{ recette.description }}</td>
+                <td>{{ recette.ingredients }}</td>
+                <td>{% if recette.dateAjout %}{{ recette.dateAjout|date('d-m-Y') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('recette_show', { 'id': recette.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('recette_edit', { 'id': recette.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('recette_new') }}">Create a new recette</a>
+        </li>
+    </ul>
+{% endblock %}
